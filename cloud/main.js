@@ -7,7 +7,7 @@ AV.Cloud.define("hello", function(request, response) {
 	response.success("Hello world," + request.params.name);
 });
 
-AV.Cloud.beforeSave("TestReview", function(req, res){
+AV.Cloud.beforeSave("TestReview", function(request, response){
 	if (request.object.get("stars") < 1) {
 		response.error("you cannot give less than one star");
 	} else if (request.object.get("stars") > 5) {
