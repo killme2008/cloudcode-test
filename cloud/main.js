@@ -2,8 +2,7 @@
 // For example:
 var name = require('cloud/name.js');
 AV.Cloud.define("hello", function(request, response) {
-	console.log(name.isACoolName('Fred')); // returns false
-	console.log(name.isACoolName('Skippy')); // returns true;
+	console.log("fuck hello world");
 	response.success("Hello world," + request.params.name);
 });
 
