@@ -2,7 +2,7 @@
 // For example:
 var name = require('cloud/name.js');
 AV.Cloud.define("hello", function(request, response) {
-	console.log("fuck hello world");
+	console.log("fuck hello world 2");
 	response.success("Hello world," + request.params.name);
 });
 
