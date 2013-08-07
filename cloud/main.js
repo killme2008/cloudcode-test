@@ -1,6 +1,7 @@
 // Use Parse.Cloud.define to define as many cloud functions as you want.
 // For example:
 var name = require('cloud/name.js');
+require('cloud/app.js')
 AV.Cloud.define("hello", function(request, response) {
     console.log(request.user);
 	response.success("Hello world," + request.params.name);
