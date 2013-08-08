@@ -12,8 +12,9 @@ app.use(express.bodyParser());    // Middleware for reading request body
 app.get('/hello', function(req, res) {
   res.render('hello', { message: 'Congrats, you just set up your app!' });
 });
+app.enable('trust proxy');
 app.get('/', function(req, res){
-	res.render('index',{ ip: req.ip});
+	res.render('index',{ ip: req.ips});
 });
 
 // This line is required to make Express respond to http requests.
