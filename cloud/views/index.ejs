@@ -1,1 +1,19 @@
-Your ip address is <%= ip %>
+
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link href="stylesheets/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <title>Web hosting demo</title>
+  </head>
+  <body>
+	<div class='container'>
+	  <p>hello,<%= name %></p>
+	  <div>
+		<form action="/" method="post">
+		  Say hello to: <input type='text' name='name' id='name'/>
+		</form>
+	  </div>
+	</div>
+  </body>
+</html>

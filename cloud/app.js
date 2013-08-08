@@ -14,7 +14,11 @@ app.get('/hello', function(req, res) {
 });
 app.enable('trust proxy');
 app.get('/', function(req, res){
-	res.render('index',{ ip: req.ips});
+	res.render('index',{ name: "AVOSCloud"});
+});
+app.post('/',function(req, res){
+	var name = req.body.name;
+	res.render('index',{ name: name});
 });
 
 // This line is required to make Express respond to http requests.
