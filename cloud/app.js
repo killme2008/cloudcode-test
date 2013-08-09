@@ -22,7 +22,7 @@ function renderIndex(res, name){
 	query.descending('createdAt');
 	query.find({
 		success: function(results){
-			name = 'MR. ' + name;
+			name = 'Mr. ' + name;
 			res.render('index',{ name: name, visitors: results});
 		},
 		error: function(error){
