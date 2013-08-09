@@ -18,6 +18,16 @@
 		  <input type='submit' value='Say'/>
 		</form>
 	  </div>
+	  <br/>
+	  <br/>
+	  <h4>Recent visitors</h4>
+	  <table class='table table-bordered'>
+		<% for (var visitor in visitors){%>
+		<tr>
+		  <td> <%= visitor.name %> </td>
+		</tr>
+		<% } %>
+	  </table>
 	</div>
 	<div class='container'>
 	  <footer class="footer">Powered by <a href='https://cn.avoscloud.com'>AVOSCloud.com</a></footer>
