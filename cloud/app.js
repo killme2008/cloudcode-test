@@ -19,6 +19,7 @@ function renderIndex(res, name){
 	var query = new AV.Query(Visitor);
 	query.skip(0);
 	query.limit(10);
+	query.descending('createdAt');
 	query.find({
 		success: function(results){
 			console.log(results);
