@@ -25,9 +25,11 @@ function renderIndex(res, name){
 	query.limit(10);
 	query.find({
 		success: function(results){
+			console.log(results);
 			res.render('index',{ name: name, visitors: results});
 		},
 		error: function(error){
+			console.log(error);
 			res.render('500',500)
 		}
 	});
