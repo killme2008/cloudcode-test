@@ -14,10 +14,6 @@ app.get('/hello', function(req, res) {
 });
 app.enable('trust proxy');
 
-app.get('/', function(req, res){
-	res.render('index',{ name: "AVOSCloud"});
-});
-
 var Visitor = AV.Object.extend('Visitor');
 function renderIndex(res, name){
 	var query = new AV.Query(Visitor);
@@ -36,6 +32,10 @@ function renderIndex(res, name){
 
 }
 
+app.get('/', function(req, res){
+	renderIndex(res, 'AVOSCloud');
+});
+
 app.post('/',function(req, res){
 	var name = req.body.name;
 	if(name && name!=''){
@@ -44,14 +44,14 @@ app.post('/',function(req, res){
 		visitor.set('name', name);
 		visitor.save(null, {
 			success: function(gameScore) {
-				renderIndex(res, name);
+				res.redirect('/');
 			},
 			error: function(gameScore, error) {
 				res.render('500', 500);
 			}
 		});
 	}else{
-		renderIndex(res, 'AVOSCloud');
+		res.redirect('/');
 	}
 });
 

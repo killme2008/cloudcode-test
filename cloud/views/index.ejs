@@ -22,12 +22,13 @@
 	  <br/>
 	  <h4>Recent visitors</h4>
 	  <table class='table table-bordered'>
-		<% if(visitors){ %>
-		<% for (var visitor in visitors){%>
+		<% if (visitors){ %>
+		<%  visitors.forEach(function (visitor){ %>
 		<tr>
 		  <td> <%= visitor.name %> </td>
 		</tr>
-		<% }} %>
+		<% })
+		   } %>
 	  </table>
 	</div>
 	<div class='container'>
