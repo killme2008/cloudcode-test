@@ -1,0 +1,43 @@
+
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link href="stylesheets/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <title>Web hosting demo</title>
+  </head>
+  <body>
+	<div class='container'>
+	  <h3>Web hosting demo development mode</h3>
+	  <br/>
+	  <p>hello,<%= name %></p>
+	  <br/>
+	  <div>
+		<form action="/" method="post">
+		  Say hello to: <input type='text' name='name' id='name'/>
+		  <input type='submit' value='Say'/>
+		</form>
+	  </div>
+	  <br/>
+	  <br/>
+	  <h4>Recent visitors</h4>
+	  <br/>
+	  <br/>
+	  <table class='table table-bordered'>
+		<% if (visitors){ %>
+		<%  visitors.forEach(function (visitor){ %>
+		<tr>
+		  <td> <%= visitor.get('name') %> </td>
+		</tr>
+		<% })
+		   } %>
+	  </table>
+	</div>
+	<div class='container'>
+	  <footer class="footer">
+		<p>Powered by <a href='https://cn.avoscloud.com'>AVOSCloud.com</a></p>
+		<p>Source code: <a href='https://github.com/killme2008/cloudcode-test>https://github.com/killme2008/cloudcode-test</a></p>
+	  </footer>
+	</div>
+  </body>
+</html>
