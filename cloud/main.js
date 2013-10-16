@@ -34,3 +34,4 @@ AV.Cloud.afterSave("TestReview", function(request) {
 		}
 	});
 });
+AV.Cloud.setInterval("test", "hello", 2);
