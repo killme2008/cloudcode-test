@@ -46,5 +46,5 @@ AV.Cloud.afterSave("TestReview", function(request) {
 	});
 });
 
-AV.Cloud.setInterval("timer1", "timer1fn" ,30);
+AV.Cloud.setInterval("timer3", "timer1fn" ,30);
 AV.Cloud.cronJob("timer2", "timer2fn" ,"0 1 * * * ?");
