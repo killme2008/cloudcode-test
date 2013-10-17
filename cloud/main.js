@@ -7,17 +7,6 @@ AV.Cloud.define("hello", function(request, response) {
 	response.success("Hello world," + request.params.name);
 });
 
-AV.Cloud.define("timer1fn", function(request, response) {
-	console.log("timer1fn:" + __production);
-	response.success("Hello world," + request.params.name);
-});
-
-AV.Cloud.define("timer2fn", function(request, response) {
-	console.log("timer2fn");
-	response.success("");
-});
-
-
 AV.Cloud.beforeSave("TestReview", function(request, response){
 	if (request.object.get("stars") < 1) {
 		response.error("you cannot give less than one star");
@@ -46,5 +35,10 @@ AV.Cloud.afterSave("TestReview", function(request) {
 	});
 });
 
-AV.Cloud.setInterval("timer3", "timer1fn" ,30);
-AV.Cloud.cronJob("timer2", "timer2fn" ,"0 1 * * * ?");
+
+AV.Cloud.setInterval("timer1", 30, function(){
+	console.log("timer1:" + __production);
+});
+AV.Cloud.cronJob("timer2", "* */1 * * * ?", function(){
+	console.log("timer2:" + __production);
+});
