@@ -34,11 +34,3 @@ AV.Cloud.afterSave("TestReview", function(request) {
 		}
 	});
 });
-
-
-AV.Cloud.setInterval("timer1", 30, function(){
-	console.log("timer1:" + __production);
-});
-AV.Cloud.cronJob("timer2", "* */1 * * * ?", function(){
-	console.log("timer2:" + __production);
-});
