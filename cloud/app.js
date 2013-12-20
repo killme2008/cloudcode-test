@@ -2,6 +2,8 @@
 var express = require('express');
 var app = express();
 var name = require('cloud/name.js');
+var avosExpressHttpsRedirect = require('avos-express-https-redirect');
+
 
 // App全局配置
 //设置模板目录
@@ -10,6 +12,7 @@ if(__production)
 else
 	app.set('views', 'cloud/dev_views');
 app.set('view engine', 'ejs');    // 设置template引擎
+app.use(avosExpressHttpsRedirect()); //启用HTTPS
 app.use(express.bodyParser());    // 读取请求body的中间件
 
 //使用express路由API服务/hello的http GET请求
@@ -36,18 +39,21 @@ function renderIndex(res, name){
 }
 
 app.get('/', function(req, res){
-	renderIndex(res, 'AVOSCloud');
+	var name = req.query.name;
+	if(!name)
+		name = 'AVOS Cloud';
+	renderIndex(res, name);
 });
 
 app.post('/',function(req, res){
 	var name = req.body.name;
-	if(name && name!=''){
+	if(name && name.trim() !=''){
 		//Save visitor
 		var visitor = new Visitor();
 		visitor.set('name', name);
 		visitor.save(null, {
 			success: function(gameScore) {
-				res.redirect('/');
+				res.redirect('/?name=' + name);
 			},
 			error: function(gameScore, error) {
 				res.render('500', 500);
